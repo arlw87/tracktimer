@@ -248,7 +248,7 @@
     //popup demo
     $("#btnAdd").click(function(){
         
-       $("#addAthletePopup").popup("open"); 
+       $("#addAthletePopup").popup("open");
         
     });
         
@@ -391,6 +391,7 @@
                 //get the typed in name
                 var name = $("#enteredName").val();
                 //close the popup
+                $("#enteredName").val('');
                 $("#addAthletePopup").popup("close");
                 //if no name alert
                 if (name =="")
@@ -414,7 +415,7 @@
                     initialiseConstr(timer[timer_index]);
                     //name into the athlete array
                     AtheletesArray[timer_index-1] = name; 
-                    $("#enteredName").val() = "";                   
+                                       
                     
                 }
                 
