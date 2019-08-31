@@ -1,0 +1,621 @@
+<!--<!doctype html>-->
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1", shrink-to-fit="no">
+        <title>A Button Test</title>
+        
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script>
+
+</script>
+        
+        
+        <style type="text/css">
+            .mainContent{
+/*                background-color: #EFF0F1;*/
+                 background-color: #EFF0F1;
+            }
+            
+                
+            .box1{
+                background-color: white;
+                height: 12%;
+                margin: 20px auto;
+                width: 95%;
+                padding:0px; 
+                max-width: 1000px;
+                min-height: 80px;
+            }
+        
+            .shadow {
+                -webkit-box-shadow:  5px 5px 10px 1px rgba(0, 0, 0, 0.6);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+                -moz-box-shadow:     5px 5px 10px 1px rgba(0, 0, 0, 0.6);  /* Firefox 3.5 - 3.6 */
+                box-shadow:         5px 5px 10px 1px rgba(0, 0, 0, 0.6);  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+            }
+            
+            .table1{
+ 
+            }
+            
+            .button{
+                border: none;
+                height: 80px;
+                font-size:  8vw;
+                background-color: #45D3A3;
+                border-right: 8px solid green;
+                color: white;
+                width: 40%;
+                float: left;
+
+
+            }
+            
+            @media screen and (min-width: 800px) {
+            .button {
+                border: none;
+                height: 80px;
+                font-size:  60px;
+                background-color: #45D3A3;
+                border-right: 8px solid green;
+                color: white;
+                width: 40%;
+                float: left;
+                }
+            }
+                    
+            .time{
+                
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                font-size: 11vw;
+                font-family: 'Glegoo', serif;
+                letter-spacing: -0.7vw;
+                height:100%;
+            }
+            
+            @media screen and (min-width: 600px) {
+            .time {
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                font-size: 60px;
+                font-family: 'Glegoo', serif;
+                letter-spacing: -0.0vw;
+                height:100%;
+                }
+            }
+            
+            
+            .timeArea{
+                margin: 0px auto;
+                width: 58%;
+                height: 80px;
+                float: left;
+                display: table;
+/*                border: 1px red solid;*/
+            }
+            
+        
+            .button2{
+                border: none;
+                height: 80px;
+                font-size: 8vw;
+                background-color: #F94D4D;
+                border-right: 8px solid #B6302F;
+                color: white;
+                width:40%;
+                float: left;
+            }
+            
+            .test{
+                color: red;
+            }
+            
+            .blueBtn{
+                background-color: #4A83E4;
+                font-family: 'Glegoo', serif;
+                color: white;
+                width: 50%;
+                border:none;
+                border-radius:0px;
+                margin: 20px auto;
+                text-shadow: none;
+            }
+            
+            #btnAdd{
+                background-color: #4A83E4;
+                font-family: 'Glegoo', serif;
+                color: white;
+                width: 50%;
+                border:none;
+                border-radius:0px;
+                margin: 20px auto;
+                text-shadow: none;
+            }
+            
+            #createAthlete{
+                background-color: #4A83E4;
+                font-family: 'Glegoo', serif;
+                color: white;
+                width: 80%;
+                border:none;
+                border-radius:0px;
+                margin: 20px auto;
+                text-shadow: none;
+            }
+            
+            .popup{
+                padding: 0 10px 10px 10px;
+                border-radius: 0px;
+                
+                
+            }
+            
+            .squareBox{
+                border-radius: 0px; 
+                margin: 20px auto;
+            }
+            
+            
+            #addAthletePopup{
+                
+            }
+            
+            #popupBox{
+                width:100%;
+            }
+            
+            #enteredName{
+                display: block;
+                width: 80%;
+                font-size: 6vw;
+                border:none;
+                text-align: center;
+                border: grey 2px solid;
+                
+            }
+            
+            #popHeader{
+                text-align: center;
+                display: block;
+            }
+            
+            #effort{
+                color: blue;
+                font-weight: bold;
+            }
+            #mypanelLeft{
+                padding-top: 0px;
+                padding-left: 4%;
+            }
+            #mypanelRight{
+                padding-top: 0px;
+                padding-left: 4%;
+            }
+        
+        </style>
+       
+    </head>
+    <body>
+        
+    <div data-role="page" id="page1" class="mainContent">  
+        
+    <div data-role="panel" id="mypanelLeft" data-display="overlay" class="test" data-position="left">
+
+    </div> 
+        
+    <div data-role="panel" id="mypanelRight" data-display="overlay" class="test" data-position="right">
+
+    </div> 
+        
+    <div data-role="popup" id="addAthletePopup" class="popup shadow" data-transition="slideup">
+        <div id="popupBox">
+            <h3 id="popHeader">New Athlete Details</h3>
+<!--            <label for="athleteName">Name</label>-->
+            <input type="text" name="athleteName" class="squareBox" id="enteredName" value="" placeholder="Athlete" data-role="none"> 
+<!--            <label for="session">Session</label>-->
+
+            <button id="createAthlete" class="shadow">Create</button>
+        </div>
+    </div>
+        
+        
+    <div role="main" data-role="none">        
+        <div id="allTimers">    
+            <div id="addTimer">
+            </div>
+        </div>    
+
+    </div>
+    <div id="AddAthlete">
+        <button id="btnAdd" class="shadow">Add Athlete</button>    
+    </div>
+        
+        
+    </div>
+        
+        
+    </body>
+    
+    
+
+    <script type="text/javascript">
+        
+        
+    //popup demo
+    $("#btnAdd").click(function(){
+        
+       $("#addAthletePopup").popup("open"); 
+        
+    });
+        
+    
+        
+        $("body").on("swiperight", function(event){
+            
+            //determine the element that the swipe right occurred on
+            var id = $(event.target).attr('id');
+            //get the length of the ID
+            var len_id = id.length;
+            //if the element swiped on wasnt the page
+            if (id.substr(0,4) != "page")
+            {
+                if (id[len_id-2] == "_")
+                {
+                    //get the index of the element swiped on
+                    var index = id[len_id-1]; 
+                    //get the corresponding name of the athlete for that element
+                    var historyString = "<h2>" + AtheletesArray[index-1] + "</h2>";
+                    //construct the History String
+                    console.log(timer[index-1]);
+                    //if there are some times saved construct the string
+                    if (timer[index-1].EffortTimes.length > 0)
+                    {
+                        for (var a = 1 ; a < timer[index-1].EffortTimes.length; a++)
+                        {
+                            historyString = historyString + "<span id='effort'>Effort " + a + ": " + timer[index-1].EffortTimes[a] + " " + "</span><br>(" + timer[index-1].lapStringArray[a].substring(0, timer[index-1].lapStringArray[a].length -2) + ")<br>";        
+                        }
+                    }
+                    
+                    //at the history string to the panel and display
+                    $("#mypanelLeft").html(historyString);
+                    $("#mypanelLeft" ).trigger( "updatelayout" );
+                    $("#mypanelLeft").panel("open");
+                    
+                }
+            }
+            
+        });
+                
+        var timerCounter = 1;
+    
+        function changeElementIndex(elementName, index, docDivison)
+        {  
+            var searchString = "#" + elementName + (index-1);
+            var replaceString = elementName + index;
+            console.log(searchString);
+            console.log(replaceString);
+            docDivison.find(searchString).attr('id',replaceString);            
+        }
+    
+        //create new object. None of the variables in the object need initial values
+        function Variables()
+        {
+            this.seconds;
+            this.minutes;
+            this.ms;
+            this.startTime;
+            this.delta;
+            this.lapTime;
+            this.currentTime;
+            this.lapTimeArray;
+            this.Arr;
+            this.start;
+            this.clear;
+            this.t;
+            this.index;
+            this.finishTimes;
+            this.finishTimesIndex;
+            this.lapTime;
+            this.lapTimeArray;
+            this.freezeTime;
+            this.f;
+            this.time;
+            this.lapTimeRaw;
+            this.EffortNumber;
+            this.EffortTimes;
+            this.lapStringArray;
+        }
+        
+        //number of timers to start with
+        var timer_index = 0;
+        
+        //Athletes name array
+        var AtheletesArray = new Array();
+        
+        //An array for the timer objects
+        var timer = new Array();
+    
+        //instance time0 of the variable object
+        timer[0] = new Variables();
+        // set the varibles in the timer instance to intitial values
+        initialiseConstr(timer[0]);
+        
+        //initialise the values of instance
+        function initialiseConstr(constr)
+        {   
+            constr.seconds = 0;
+            constr.minutes = 0;
+            constr.ms = 0;
+            constr.startTime;
+            constr.delta;
+            constr.lapTime;
+            constr.currentTime;
+            constr.lapTimeArray = new Array();
+            constr.Arr = 0;
+            constr.start = true;
+            constr.clear = true;
+            constr.t;
+            constr.index;
+            constr.finishTimes = new Array();
+            constr.finishTimesIndex = 0;
+            constr.lapTime;
+            constr.lapTimeArray = new Array();
+            constr.freezeTime = false;
+            constr.f;
+            constr.time;
+            constr.lapTimeRaw = new Array();
+            constr.EffortNumber = 0;
+            constr.EffortTimes = new Array();
+            constr.lapStringArray = new Array();
+
+        }
+        
+        
+        $(document).click(function(event){
+            
+            //when a click event in the document occurs
+        
+            console.log($(event.target).attr('id'));
+            //what element did the click occur on
+            var id = $(event.target).attr('id');
+            //alert(id);
+            //alert(id);
+            
+            //if the click occurred on the add athlete button
+            if (id=="createAthlete")
+            {
+                //get the typed in name
+                var name = $("#enteredName").val();
+                //close the popup
+                $("#addAthletePopup").popup("close");
+                //if no name alert
+                if (name =="")
+                {
+                    alert("No name");    
+                }
+                else{
+
+                    // get the last DIV which ID starts with ^= "klon"
+                    var $div = $('#addTimer');
+                    timer_index++;
+                    // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
+                    var $timer = $div.clone(true).prop('id', 'addTimer_'+timer_index);
+                    $timer.insertBefore($div);  
+                    //modify the html to have all the timer gui
+                    var timerString = "<div id='OneTimer_" + timer_index + "' class='shadow box1 timer toCopy' data-role='none'><div class='table1'><button id='start_" + timer_index + "' class='button startButton' data-role='none'>" + name.substr(0,6) + "</button></div><div class='timeArea' id='timerArea_" + timer_index + "' data-role='none'><div id='time_" + timer_index + "' class='time' data-role='none'><span id='DisplayTime_" + timer_index + "'>00:00.00</span></div></div></div>"
+                    //update the html
+                    $("#addTimer_" + timer_index).html(timerString);
+                    // add a new timer instance and initialise the variables
+                    timer[timer_index] = new Variables();
+                    initialiseConstr(timer[timer_index]);
+                    //name into the athlete array
+                    AtheletesArray[timer_index-1] = name; 
+                    $("#enteredName").val() = "";                   
+                    
+                }
+                
+                
+                
+            //start all function not implimented
+            }else if (id=="start_all")
+            {
+                //count how many timers there are
+                if (countAthletes > 0){
+                    console.log("Athletes Number:" + countAthletes);
+                }
+                
+                                          
+                for (var t = 1; t<countAthletes+1;t++){
+                    //toggle the look of the start stop button
+                    var btn_id = "#start_" + t;
+                    $(btn_id).toggleClass("btn-danger");
+                    //toggle the text of the start / stop button
+                    timer[t-1].index = t;
+                    constr = timer[t-1];
+                    begin(constr); 
+                }
+
+                
+                //disappear start all
+                $("#start_all").css('display','none');
+                
+            
+            }else{
+                //if not clicked on createAthlete
+                //get the index
+                var length = id.length;
+                var index = id[length - 1];
+                console.log("index: " + index);
+                var action = id.substring(0,length-1);
+                console.log("action: " + action);
+                //get the the correct timer instance
+                //set the index in the timer instance
+                timer[index-1].index = index;
+                //set the timer instance to a variable for ease of use
+                constr = timer[index-1];
+                //alert(constr.index);
+
+                //if a start button was clicked
+                if (action == "start_"){
+                    //apply the begin function to the timer instance
+                    begin(constr);       
+
+                    //toggle the look of the start stop button
+                    var btn_id = "#" + id;
+                    $(btn_id).toggleClass("button2");
+                    //toggle the text of the start / stop button
+
+                //if the displaytime was clicked lap the athlete
+                } else if (action == "DisplayTime_")
+                {
+
+                    //apply the lap function to the timer instance
+                    lapFunction(constr);
+
+                } 
+            
+            
+            }
+            
+        })
+        
+
+        function displayAlert(constr)
+        {
+            alert(constr.seconds);
+        }
+    
+
+        function begin(constr){
+            //if start is true then start the timer
+            if (constr.start)
+            {   
+                    //count the amount of efforts down
+                    constr.EffortNumber++;
+                    var d = new Date();
+                    //get start time
+                    constr.startTime = d.getTime();
+                    //set lap time
+                    constr.lapTime = constr.startTime;
+                    //console.log(constr.startTime);
+                    timerFunction(constr);
+                    //not starting anymore
+                    constr.start = false;
+                    //console.log(constr.start);
+                    //construct the lap time string
+                    var lapTimeHTML = "#histroyString_" + constr.index;
+                    var constructString = $(lapTimeHTML).html() + "<span style='color:blue;font-weight:bold' id='effort" + constr.index + "_" + constr.EffortNumber + "'></span>(<span id='lapTimes" + constr.index + "_" + constr.EffortNumber + "'></span>)<br>";
+                    console.log(constructString);
+                    $(lapTimeHTML).html(constructString);
+                
+                
+                
+            }else{
+               //if the button was pressed to stop the timer
+               //clearTimeout is a JavaScript function that stops setTimeout call which is saved on constr.t
+               clearTimeout(constr.t);
+               constr.start = true;
+               clear = 1;
+
+                
+                //get the effortTime
+                constr.EffortTimes[constr.EffortNumber] = constr.time;
+                console.log(constr.EffortTimes);
+                var totalTimeId = "#effort" + constr.index + "_" + constr.EffortNumber; 
+                //console.log(totalTimeId);
+                //console.log($("#OneTimer_1").getElementById(""))
+                $(totalTimeId).html("Effort " + constr.EffortNumber + ": " + constr.EffortTimes[constr.EffortNumber] + " ");
+                
+                
+                //when the timer is stop, it is a final lap
+                lapFunction(constr);
+            
+                //clear the rawLapTime
+                
+               //console.log(constr.start);
+               //clear the lap elements
+               constr.Arr = 0;
+               constr.lapTimeArray.length = 0;
+               constr.lapTimeRaw.length = 0;
+            }
+
+        };
+
+
+
+
+       function lapFunction(constr){
+
+            //console.log(constr.currentTime);
+            //console.log("Arr: " + constr.Arr);
+           
+            //get laptime
+            var lapTimeVar = constr.currentTime - constr.lapTime;
+            //constr.Arr is the lap number
+            constr.lapTimeRaw[constr.Arr] = lapTimeVar;
+           
+            varDisplayLapTime = millisToMinutesAndSeconds(lapTimeVar);
+            constr.lapTimeArray[constr.Arr] = (constr.Arr+1) + ": " + varDisplayLapTime + ", ";
+            console.log(constr.lapTimeArray);
+            var lapStringArray ="";
+            for (var t = 0; t <= constr.Arr; t++)
+            {
+                lapStringArray = lapStringArray + constr.lapTimeArray[t]; 
+            }
+            //console.log(lapStringArray);
+            //var constrString = "#lapTimes" + constr.index + "_" + constr.EffortNumber;
+            constr.lapStringArray[constr.EffortNumber] = lapStringArray;
+            constr.lapTime = constr.currentTime;
+            constr.Arr++;
+           
+           //freeze the displayed time for 2 seconds to indicate that the lap has occurred
+           constr.freezeTime = true;
+           constr.f = setTimeout(function() {freeze(constr)},2000);
+
+        }
+    
+        function freeze(constr){
+            constr.freezeTime = false;
+            clearTimeout(constr.f);
+        }
+
+
+        function timerFunction(constr)
+        {
+            //in 10ms call the add function
+            constr.t = setTimeout(function () {add(constr)}, 10);
+        }
+            
+
+        function add(constr){
+            //work out the timing
+            var a = new Date();
+            constr.currentTime = a.getTime();
+            constr.delta = constr.currentTime - constr.startTime;
+            constr.time = millisToMinutesAndSeconds(constr.delta);
+            //console.log(time);
+            var string1 = "#DisplayTime_" + constr.index;
+            //console.log(string1);
+            //if not asked to freeze the time then update the display
+            if (constr.freezeTime == false){
+            $(string1).html(constr.time);
+            }
+            timerFunction(constr);
+
+        }
+
+        function millisToMinutesAndSeconds(millis) {
+            var minutes = Math.floor(millis / 60000);
+            var seconds = ((millis % 60000) / 1000).toFixed(2);
+            //var ms = ((millis % 60000) / 1000).toFixed(0);
+            return (minutes < 10 ? '0' : '') + minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+        }
+    
+    </script>
+
+    
+</html>
